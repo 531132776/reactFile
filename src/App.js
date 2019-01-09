@@ -7,6 +7,14 @@ import qs from 'qs'
 
 class App extends Component {
 
+
+  componentDidMount (){
+    Axios.post(`/pc/order/list`,qs.stringify({pageIndex:'1'})).then(res =>{
+      console.log(res)
+    }).catch(err =>{
+      console.log(err)
+    })
+  }
   render() {
     
     return (
@@ -23,6 +31,8 @@ class App extends Component {
       </div>
     )
   }
+
+
 }
 
 export default App;

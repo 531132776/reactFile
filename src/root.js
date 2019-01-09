@@ -7,30 +7,32 @@ import { Table } from 'antd'
 
 import './root.css'
 
+const dataSource = [{
+  key: '1',
+  name: '胡彦斌',
+  age: 32,
+  address: '西湖区湖底公园1号'
+}, {
+  key: '2',
+  name: '胡彦祖',
+  age: 42,
+  address: '西湖区湖底公园1号'
+}];
+
 const columns = [{
-  title: 'Name',
+  title: '姓名',
   dataIndex: 'name',
   key: 'name',
 }, {
-  title: 'age',
+  title: '年龄',
   dataIndex: 'age',
   key: 'age',
 }, {
-  title: 'sex',
-  dataIndex: 'sex',
-  key: 'sex',
-},
-{
-  title: 'add',
-  dataIndex: 'add',
-  key: 'add',
-},
-{
-  title: 'reduction',
-  dataIndex: 'reduction',
-  key: 'reduction',
-}
-]
+  title: '住址',
+  dataIndex: 'address',
+  key: 'address',
+}];
+
 class Root extends Component {
 
   render() {
@@ -55,7 +57,7 @@ class Root extends Component {
       render() {
         return (
           <div className="root_table">
-            <Table dataSource={this.props.tableArr} columns={columns}></Table>
+            <Table dataSource={dataSource} columns={columns}></Table>
           </div>
         )
       }
