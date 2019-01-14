@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Axios from 'axios';
-import qs from 'qs'
+// import Axios from 'axios';
+// import qs from 'qs'
 
+import Axios from './http/SendRequest'
 
 class App extends Component {
 
 
   componentDidMount (){
-    Axios.post(`/pc/order/list`,qs.stringify({pageIndex:'1'})).then(res =>{
+    Axios.post(`/exterior/houses/getHouseDetail`,{id:'1989',houseType:'0'}).then(res =>{
       console.log(res)
     }).catch(err =>{
       console.log(err)

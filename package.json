@@ -6,10 +6,12 @@
     "antd": "^3.11.2",
     "axios": "^0.18.0",
     "babel-plugin-import": "^1.11.0",
+    "es6-promise": "^4.2.5",
     "qs": "^6.6.0",
     "react": "^16.6.3",
     "react-app-rewired": "^2.0.1",
     "react-dom": "^16.6.3",
+    "react-redux-toastr": "^7.4.6",
     "react-scripts": "2.1.1"
   },
   "scripts": {
