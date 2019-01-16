@@ -1,7 +1,7 @@
 // import axios from 'axios'
 import Promise from 'es6-promise'
 import qs from 'qs'
-import { reject } from 'rsvp';
+// import { reject } from 'rsvp';
 import axiosService from './axiosIntercept';
 let axios = {
     post:'',

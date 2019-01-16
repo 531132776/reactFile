@@ -1,34 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import { Link } from 'react-router-dom';
 import './App.css';
-// import Axios from 'axios';
-// import qs from 'qs'
 
 import Axios from './http/SendRequest'
 
+
 class App extends Component {
-
-
-  componentDidMount (){
-    Axios.post(`/exterior/houses/getHouseDetail`,{id:'1989',houseType:'0'}).then(res =>{
+  componentDidMount() {
+    Axios.post(`/exterior/houses/getHouseDetail`, { id: '1989', houseType: '0' }).then(res => {
       console.log(res)
-    }).catch(err =>{
+    }).catch(err => {
       console.log(err)
     })
   }
   render() {
-    
+
     return (
-      
-      <div className="App">
-        
-        <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          
-        </header>
+      <div>
+        <h1>React Router Tutorial</h1>
+        <ul>
+          <li><Link to="/common" >common</Link></li>
+          <li><Link to="/home" >home</Link></li>
+          <li><Link to="/about" >about</Link></li>
+        </ul>
+        <div className="container">
+          {this.props.children}
+        </div>
+
       </div>
     )
   }
