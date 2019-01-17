@@ -44,7 +44,7 @@ class Home_2 extends Component {
         }
         routerTo(v){
             this.props.history.push({
-                pathname: `/home/${v.id}`,
+                pathname: `/root/${v.id}`,
                 state: { data: v }
             })
         }

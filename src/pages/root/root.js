@@ -48,8 +48,8 @@ class Root extends Component {
           keyword: null
         };
         const res = await Axios.post('/pc/refund/list', qs.stringify(obj))
-        console.log(res);
-        const tableArr = res.data.dataSet
+        // console.log(res);
+        // const tableArr = res.data.dataSet
       }
       componentDidMount() {
         this.getList()

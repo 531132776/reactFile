@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
 import './App.css';
 
 import {
@@ -10,6 +10,7 @@ import Axios from './http/SendRequest'
 import Home from './pages/home/home'
 import About from './pages/about/about'
 import Common from './pages/common/common'
+import Root from './pages/root/root'
 
 
 // const { SubMenu } = Menu;
@@ -17,18 +18,25 @@ const {
   Header, Content, Footer, Sider,
 } = Layout;
 class App extends Component {
-  state = {
-    collapsed: false
+  constructor(props,context){
+    super(props,context)
+    console.info(props,context);
+    this.state = {
+      collapsed: false,
+      selectedKey: '1'
+    }
   }
+  
   toggle = () => {
     this.setState({
       collapsed: !this.state.collapsed
     })
   }
-
+  menuClick =e=>{this.setState({selectedKey:e.key})}
   componentDidMount() {
+    console.log(this.props)
     Axios.post(`/exterior/houses/getHouseDetail`, { id: '1989', houseType: '0' }).then(res => {
-      console.log(res)
+      // console.log(res)
     }).catch(err => {
       console.log(err)
     })
@@ -44,21 +52,38 @@ class App extends Component {
             collapsed={this.state.collapsed}>
             <div>
               <div className="logo" />
-              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} selectedKeys={[this.state.selectedKey]} onClick={this.menuClick}>
                 <Menu.Item key="1">
                   <Icon type="user" />
-                  <span>nav 1</span>
-                  <Link to="/" >common</Link>
+                  <span>common</span>
+                  <NavLink to="/" activeStyle={{
+    fontWeight: "bold",
+    color: "red"
+  }}>common</NavLink>
                 </Menu.Item>
                 <Menu.Item key="2">
                   <Icon type="video-camera" />
-                  <span>nav 2</span>
-                  <Link to="/home" >home</Link>
+                  <span>home</span>
+                  <NavLink to="/home" activeStyle={{
+    fontWeight: "bold",
+    color: "red"
+  }}>home</NavLink>
                 </Menu.Item>
                 <Menu.Item key="3">
                   <Icon type="deployment-unit" />
-                  <span>nav 3</span>
-                  <Link to="/about" >about</Link>
+                  <span>about</span>
+                  <NavLink to="/about" activeStyle={{
+    fontWeight: "bold",
+    color: "red"
+  }}>about</NavLink>
+                </Menu.Item>
+                <Menu.Item key="4">
+                  <Icon type="property-safety" />
+                  <span>root</span>
+                  <NavLink to="/root" activeStyle={{
+    fontWeight: "bold",
+    color: "red"
+  }}>root</NavLink>
                 </Menu.Item>
               </Menu>
             </div>
@@ -79,6 +104,7 @@ class App extends Component {
                 <Route exact path='/' component={Common} />
                 <Route path='/home' component={Home} />
                 <Route path='/about' component={About} />
+                <Route path='/root' component={Root} />
               </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
