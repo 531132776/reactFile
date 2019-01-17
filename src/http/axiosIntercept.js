@@ -31,7 +31,7 @@ axiosService.interceptors.request.use(
 
 axiosService.interceptors.response.use(
     (response) => {
-        console.log(response)
+        // console.log(response)
         return response.data;
     },
     (error) => {

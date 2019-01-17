@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import './index.css';
-// import App from './App';
-import Root from './route/Route';
+import App from './App';
+// import Root from './route/Route';
 import * as serviceWorker from './serviceWorker';
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 
@@ -12,7 +12,7 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 
 ReactDOM.render(
 <BrowserRouter>
-    <Root />
+    <App />
 </BrowserRouter>, 
 document.getElementById('root'));
 

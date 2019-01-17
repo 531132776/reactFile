@@ -11,8 +11,7 @@ import Home_2 from './home_2'
     <Router history={history}>
         <Home>
             <Switch> 
-                <Route exact path='/home' component={Home} />
-                <Route path='/home/home_1' component={Home_1} />
+                <Route path='/home/' component={Home_1} />
                 <Route path='/home/home_2' component={Home_2} />
                 {/*路由不正确时，默认跳回common页面*/}
                 <Route render={() => <Redirect to="/home" />} />

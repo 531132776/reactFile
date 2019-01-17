@@ -9,7 +9,7 @@ import About from '../pages/about/about'
 import Common from '../pages/common/common'
 
 const Root = ({history}) => (
-    <Router history={history}>
+    // <Router history={history}>
         <App>
             <Switch> 
                 <Route exact path='/' component={Common} />
@@ -20,7 +20,7 @@ const Root = ({history}) => (
                 <Route render={() => <Redirect to="/" />} />
             </Switch>
         </App>
-    </Router>
+    // </Router>
                
 );
 
