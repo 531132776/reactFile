@@ -52,7 +52,7 @@ class App extends Component {
             collapsed={this.state.collapsed}>
             <div>
               <div className="logo" />
-              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} selectedKeys={[this.state.selectedKey]} onClick={this.menuClick}>
+              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} selectedKeys={[this.props.history.location.pathname]} onClick={this.menuClick}>
                 <Menu.Item key="1">
                   <Icon type="user" />
                   <span>common</span>

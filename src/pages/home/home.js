@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router,Route,Link,NavLink } from 'react-router-dom';
+import { Route,NavLink } from 'react-router-dom';
 
 import Home1 from '../../compoents/home_1'
 import Home2 from '../../compoents/home_2'
