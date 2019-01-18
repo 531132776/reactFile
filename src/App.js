@@ -23,7 +23,7 @@ class App extends Component {
     console.info(props,context);
     this.state = {
       collapsed: false,
-      selectedKey: '1'
+      selectedKey: ''
     }
   }
   
@@ -32,7 +32,10 @@ class App extends Component {
       collapsed: !this.state.collapsed
     })
   }
-  menuClick =e=>{this.setState({selectedKey:e.key})}
+  menuClick =e=>{
+    console.log(e)
+    this.setState({selectedKey:e.key})
+  }
   componentDidMount() {
     console.log(this.props)
     Axios.post(`/exterior/houses/getHouseDetail`, { id: '1989', houseType: '0' }).then(res => {
@@ -52,7 +55,7 @@ class App extends Component {
             collapsed={this.state.collapsed}>
             <div>
               <div className="logo" />
-              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} selectedKeys={[this.props.history.location.pathname]} onClick={this.menuClick}>
+              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.menuClick}>
                 <Menu.Item key="1">
                   <Icon type="user" />
                   <span>common</span>
